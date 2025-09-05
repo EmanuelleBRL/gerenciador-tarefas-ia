@@ -1,4 +1,4 @@
-public class Tarefas {
+public class Task {
 
     private Long id;
     private String titulo;
@@ -8,13 +8,11 @@ public class Tarefas {
 
 
 
-    public Tarefas (Long id, String titulo, String descricao, boolean status) {
+    public Task(Long id, String titulo, String descricao, boolean status) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
         this.status = status;
-
-
     }
 
 
@@ -43,7 +41,7 @@ public class Tarefas {
         this.descricao = descricao;
     }
 
-    public boolean isStatus() {
+    public boolean getStatus() {
         return status;
     }
 

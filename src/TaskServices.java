@@ -9,8 +9,7 @@ public class TaskServices {
             System.out.println("Erro ao iniciar o task: Id inválido");
         }
         //validações
-        Task task = new Task(id, titulo, descricao, status);
-        persistenceTask.addTask(task);
+        Task task = new Task(id, titulo,  descricao, status) ;
 
 
     }
@@ -26,12 +25,6 @@ public class TaskServices {
             System.out.println("Task já concluída");
             return;
         }
-        task.setStatus(true);
-    }
-
-
-    public void deleteTask(Task task) {
-
         persistenceTask.removeTask(task);
     }
 

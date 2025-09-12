@@ -1,23 +1,28 @@
+import java.util.List;
+
 public class TaskServices {
 
     PersistenceTask persistenceTask = new PersistenceTask();
 
-    public void createTask(Long id, String titulo, String descricao, boolean status) {
-        if( id == null || titulo == null || descricao == null) {
+    public void createTask(String titulo, String descricao) {
+        if(titulo == null || descricao == null) {
             System.out.println("Erro ao iniciar o task");
-        } else if (id < 0){
-            System.out.println("Erro ao iniciar o task: Id inválido");
         }
         //validações
-        Task task = new Task(id, titulo,  descricao, status) ;
-
-
+        Task task = new Task((long)(Math.floor(Math.random() * 10000) + 1), titulo,  descricao, false) ;
+        persistenceTask.addTask(task);
     }
 
 
     public void getAllTasks() {
+        List<Task> tasks = persistenceTask.getAllTasks();
+        for (Task task : tasks) {
+
+            System.out.println(task.getTitulo());
+            System.out.println(task.getId());
 
 
+        }
     }
 
     public void concludeTask(Task task) {
@@ -25,9 +30,15 @@ public class TaskServices {
             System.out.println("Task já concluída");
             return;
         }
-        persistenceTask.removeTask(task);
+
+        task.setStatus(true);
+        
+        
     }
 
+    public void excludeTask(Task task){
+        persistenceTask.removeTask(task);
+    }
 
 
 

@@ -5,17 +5,12 @@ public class Task {
     private String descricao;
     private boolean status;
 
-
-
-
     public Task(Long id, String titulo, String descricao, boolean status) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
         this.status = status;
     }
-
-
 
     public Long getId() {
         return id;

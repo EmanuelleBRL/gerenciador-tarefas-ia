@@ -17,4 +17,17 @@ public class PersistenceTask {
     public List<Task> getAllTasks() {
       return tasks;
     }
+
+    public Task getTaskById(Long taskId) {
+      for (Task task : tasks) {
+        if (task.getId().equals(taskId)) {
+          return task;
+        }
+      }
+      return null;
+    }
+
+    public Task getTaskByOrdem(int ordem) {
+      return tasks.get(ordem);
+    }
 }

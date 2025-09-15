@@ -14,34 +14,41 @@ public class TaskServices {
     }
 
 
-    public void getAllTasks() {
+    public void printAllTasks() {
         List<Task> tasks = persistenceTask.getAllTasks();
+        int ordem = 0;
         for (Task task : tasks) {
-
-            System.out.println(task.getTitulo());
-            System.out.println(task.getId());
-
-
+            System.out.println("Ordem: "+ ordem + " " + task.toString());
+            ordem++;
         }
     }
 
-    public void concludeTask(Task task) {
-        if (task.getStatus()) {
-            System.out.println("Task já concluída");
+    public void concludeTask(Long taskId) {
+        Task task = persistenceTask.getTaskById(taskId);
+        if (!task.getStatus()) {
+            task.setStatus(true);
+            System.out.println("tarefa concluida!");
             return;
         }
-
-        task.setStatus(true);
-        
-        
+        System.out.println("tarefa já foi concluida!");
     }
 
-    public void excludeTask(Task task){
-        persistenceTask.removeTask(task);
+    public void concludeTask(int ordem) {
+        Task task = persistenceTask.getTaskByOrdem(ordem);
+        if (!task.getStatus()) {
+            task.setStatus(true);
+            System.out.println("tarefa concluida!");
+            return;
+        }
+        System.out.println("tarefa já foi concluida!");
     }
 
+    public void excludeTask(int ordem){
+        Task task = persistenceTask.getTaskByOrdem(ordem);
 
+            persistenceTask.removeTask(task);
+            System.out.println("A " + task.toString() + " foi excluida!");
 
 }
 
-
+}

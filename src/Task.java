@@ -45,6 +45,13 @@ public class Task {
     }
 
 
-
-
+    @Override
+    public String toString() {
+        return "Tarefa:  {" +
+                "\n\t"  + "id=" + id +
+                ",\n\t" + "titulo='" +  + '\'' +
+                ",\n\t" + "descricao='" + descricao + '\'' +
+                ",\n\t" + "status=" + status +
+                "\n}";
+    }
 }

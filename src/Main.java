@@ -2,21 +2,24 @@ import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
+public class Main{
+
+
     public static void main(String[] args) {
+
+        // --Inicialização--
+
         Scanner input = new Scanner(System.in);
-        TaskServices  task = new TaskServices();
+        TaskServices task = new TaskServices();
+        InteracaoUser ui = new InteracaoUser(input);
 
         int sair = 0;
 
         while (sair != 1) {
-            String menu = """ 
-                       Bem-vindo ao Gerenciador de Tarefas! O que deseja fazer?
-                       
-                       1- Criar nova tarefa
-                       2- Ver minhas tarefas
-                       3- Sair
-                       """;
+
+
+
+
 
             System.out.println(menu);
             String opcao = input.nextLine();
@@ -27,17 +30,17 @@ public class Main {
                     String titulo = input.nextLine();
                     System.out.println("Informe a descricao: ");
                     String descricao = input.nextLine();
-                    task.createTask(titulo,descricao);
+                    task.createTask(titulo, descricao);
                     break;
                 case "2":
                     System.out.println("Aqui está sua lista de tarefas!");
                     task.printAllTasks();
                     menu = """ 
-                           1 - Marcar como concluído
-                           2 - Editar
-                           3 - Excluir
-                           4 - Voltar pro menu
-                        """;
+                               1 - Marcar como concluído
+                               2 - Editar
+                               3 - Excluir
+                               4 - Voltar pro menu
+                            """;
                     System.out.println(menu);
                     String opcao2 = input.nextLine();
                     int ordem;
@@ -66,5 +69,13 @@ public class Main {
                     break;
             }
         }
+
+
+
     }
+
+
 }
+
+
+

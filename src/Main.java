@@ -21,7 +21,7 @@ public class Main{
 
 
 
-            System.out.println(menu);
+
             String opcao = input.nextLine();
 
             switch (opcao) {

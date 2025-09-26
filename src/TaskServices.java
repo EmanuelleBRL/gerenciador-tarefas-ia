@@ -2,7 +2,7 @@ import java.util.List;
 
 public class TaskServices {
 
-    PersistenceTask persistenceTask = new PersistenceTask();
+    PersistenceTaskList persistenceTask = new PersistenceTaskList();
 
     public void createTask(String titulo, String descricao) {
         if(titulo == null || descricao == null) {

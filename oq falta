@@ -8,7 +8,9 @@
 
 *Editar tarefa
 
-Persistir em JSON
+Persistir em JSON -> apenas para salvar a lista em um arquivo fisico
+
+Criar ITaskRepository?
 
 Organizar tarefa por data?
 
@@ -16,7 +18,7 @@ Integrar ia --->how?
 
 Arrumar interação menu
 
-
+*** pq título ta dando 39?
 Tratamento de erros (listar possíveis erros e como lidar com eles)
 
 Por: Tarefa simples e tarefa com prazo (data e talvez hora)

@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main{
+public class Main {
 
 
     public static void main(String[] args) {
@@ -17,50 +17,34 @@ public class Main{
 
         while (sair != 1) {
 
-
-
-
-
-
-            String opcao = input.nextLine();
+            String opcao = ui.exibirMenuPrincipalEReceberOpcao();
 
             switch (opcao) {
                 case "1":
-                    System.out.println("Informe o titulo: ");
-                    String titulo = input.nextLine();
-                    System.out.println("Informe a descricao: ");
-                    String descricao = input.nextLine();
+                    String titulo = ui.solicitarTarefa();
+                    String descricao = ui.solicitarDescricao();
                     task.createTask(titulo, descricao);
                     break;
                 case "2":
                     System.out.println("Aqui está sua lista de tarefas!");
                     task.printAllTasks();
-                    menu = """ 
-                               1 - Marcar como concluído
-                               2 - Editar
-                               3 - Excluir
-                               4 - Voltar pro menu
-                            """;
-                    System.out.println(menu);
-                    String opcao2 = input.nextLine();
+                    String opcao2 = ui.exibirMenuSegundárioEReceberOpcao();
+                    if (opcao2.equals("4")) {
+                        continue;
+                    }
                     int ordem;
                     switch (opcao2) {
                         case "1":
-                            System.out.println("Digite a ordem da terefa que você deseja concluir: ");
-                            ordem = input.nextInt();
-                            input.nextLine();
+                            ordem = ui.solicitarOrdemDaTarefa("concluir");
                             task.concludeTask(ordem);
-                            break;
+                            continue;
                         case "2":
-                            break;
+                            continue;
                         case "3":
-                            System.out.println("Digite a ordem da terefa que você deseja excluir: ");
-                            ordem = input.nextInt();
-                            input.nextLine();
+                            ordem = ui.solicitarOrdemDaTarefa("excluir");
                             task.excludeTask(ordem);
                     }
-                    break;
-                case "3":
+                case "4":
                     sair = 1;
                     break;
 
@@ -69,7 +53,6 @@ public class Main{
                     break;
             }
         }
-
 
 
     }

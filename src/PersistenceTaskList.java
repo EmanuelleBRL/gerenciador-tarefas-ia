@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersistenceTask {
+public class PersistenceTaskList implements IPersistence {
 
-  private List<Task> tasks = new ArrayList<>();
+    private List<Task> tasks = new ArrayList<>();
 
   public void addTask(Task task){
     tasks.add(task);

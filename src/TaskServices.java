@@ -18,7 +18,7 @@ public class TaskServices {
         List<Task> tasks = persistenceTask.getAllTasks();
         int ordem = 0;
         for (Task task : tasks) {
-            System.out.println("Ordem: "+ ordem + " " + task.toString());
+            System.out.println("Ordem: "+ ordem + " " + "\n\t"  + task.toString());
             ordem++;
         }
     }
@@ -34,6 +34,10 @@ public class TaskServices {
     }
 
     public void concludeTask(int ordem) {
+        if(ordem >= persistenceTask.getTaskListSize()) {
+            System.out.println("Impossível, ordem inexistente.");
+            return;
+        }
         Task task = persistenceTask.getTaskByOrdem(ordem);
         if (!task.getStatus()) {
             task.setStatus(true);

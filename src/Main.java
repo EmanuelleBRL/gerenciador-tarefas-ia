@@ -4,15 +4,21 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
 
+    Scanner input = new Scanner(System.in);
+    TaskServices task = new TaskServices();
+    InteracaoUser ui = new InteracaoUser(input);
+
+    
 
     public static void main(String[] args) {
 
         // --Inicialização--
+    Main m = new Main();
+    m.executar();
 
-        Scanner input = new Scanner(System.in);
-        TaskServices task = new TaskServices();
-        InteracaoUser ui = new InteracaoUser(input);
+    }
 
+    public void executar(){
         int sair = 0;
 
         while (sair != 1) {
@@ -21,12 +27,9 @@ public class Main {
 
             switch (opcao) {
                 case "1":
-                    String titulo = ui.solicitarTarefa();
-                    String descricao = ui.solicitarDescricao();
-                    task.createTask(titulo, descricao);
-                    break;
+                    createNewTask();
                 case "2":
-                    System.out.println("Aqui está sua lista de tarefas!");
+                    System.out.println("Aqui está sua lista de tarefas!" + "\n\t");
                     task.printAllTasks();
                     String opcao2 = ui.exibirMenuSegundárioEReceberOpcao();
                     if (opcao2.equals("4")) {
@@ -56,6 +59,14 @@ public class Main {
 
 
     }
+
+    public void createNewTask() {
+        String titulo = ui.solicitarTarefa();
+        String descricao = ui.solicitarDescricao();
+        task.createTask(titulo, descricao);
+
+    }
+
 
 
 }

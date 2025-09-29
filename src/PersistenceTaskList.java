@@ -30,4 +30,8 @@ public class PersistenceTaskList implements IPersistence {
     public Task getTaskByOrdem(int ordem) {
       return tasks.get(ordem);
     }
+
+    public int getTaskListSize(){
+      return tasks.size();
+    }
 }

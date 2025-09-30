@@ -37,7 +37,8 @@ public class InteracaoUser {
         return scanner.nextLine();
     }
 
-    public String exibirMenuSegundárioEReceberOpcao() {
+
+    public String exibirMenuSegundarioEReceberOpcao() {
         String menu = """ 
                    1 - Marcar como concluído
                    2 - Editar

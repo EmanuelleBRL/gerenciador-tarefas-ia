@@ -1,10 +1,14 @@
 
+part1
 
 Criar ITaskRepository?
 
 Persistir em JSON -> apenas para salvar a lista em um arquivo fisico
 
 Organizar tarefa por data?
+
+
+part2
 
 Integrar ia --->how?
 
@@ -33,7 +37,19 @@ E ESCREVER UM TEXTO EXPLICANDO COMO O CODIGO FUNCIONA (nivel relatório)
 //Solicitar conclusao tarefa
 //Solicitarexclusao tarefa
 
+!!!A resposta é não, não quebra o princípio, porque a responsabilidade foi redefinida.
 
+   Na arquitetura anterior (Repository Pattern puro):
+
+   A responsabilidade da TaskServices era apenas a lógica de negócio, delegando todo o armazenamento.
+
+   A responsabilidade da PersistenceTaskList era gerenciar uma lista em memória.
+
+   Na nova arquitetura (Híbrida):
+
+   A responsabilidade única da TaskServices agora é gerenciar o estado das tarefas e aplicar regras de negócio em memória, durante a execução do programa.
+
+   A responsabilidade da ITaskRepository (e sua implementação PersistenceTaskJson) é apenas importar e exportar esse estado para um armazenamento permanente.!!!
 
 
 

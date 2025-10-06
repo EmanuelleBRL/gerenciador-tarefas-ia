@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class PersistenceTaskList implements ITaskRepository {
+public class PersistenceTaskList  {
 
     private List<Task> tasks = new ArrayList<>();
 

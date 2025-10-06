@@ -1,14 +1,11 @@
+import java.io.IOException;
 import java.util.List;
 
 public interface ITaskRepository {
 
-    void addTask(Task task);
+    void save (List<Task> tasks) throws IOException;
 
-    void removeTask(Task task);
+    List<Task> load() throws IOException;
 
-    List<Task> getAllTasks();
 
-    Task getTaskByOrdem(int ordem);
-
-    int getTaskListSize();
 }

@@ -2,10 +2,12 @@ import java.util.Scanner;
 
 
 public class Main {
-
+    ITaskRepository repository = new PersistenceTaskList();
     Scanner input = new Scanner(System.in);
-    TaskServices task = new TaskServices();
+    TaskServices task = new TaskServices(repository);
     InteracaoUser ui = new InteracaoUser(input);
+
+
 
 
     public static void main(String[] args) {

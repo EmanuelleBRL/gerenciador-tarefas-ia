@@ -1,13 +1,15 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class TaskServices {
     private final ITaskRepository repository;
 
-
+    private List<Task> tasksInMemory;
 
 
     public TaskServices(ITaskRepository repository) {
         this.repository = repository;
+        this.tasksInMemory = new ArrayList<>();
     }
 
     public void createTask(String titulo, String descricao) {
@@ -16,21 +18,21 @@ public class TaskServices {
         }
         //validações
         Task task = new Task((long) (Math.floor(Math.random() * 10000) + 1), titulo, descricao, false);
-        this.repository.addTask(task);
+        this.tasksInMemory.add(task);
     }
 
 
     public void printAllTasks() {
-        List<Task> tasks = this.repository.getAllTasks();
+
         int ordem = 0;
-        for (Task task : tasks) {
+        for (Task task : tasksInMemory) {
             System.out.println("Ordem: " + ordem + " " + "\n\t" + task.toString());
             ordem++;
         }
     }
 
    public void editTask(int ordem, String titulo, String descricao) {
-        Task task = this.repository.getTaskByOrdem(ordem);
+        Task task = this.tasksInMemory.getTaskByOrdem(ordem);
 
         if (titulo == null || descricao == null) {
             System.out.println("Erro ao editar a tarefa.");
@@ -43,11 +45,11 @@ public class TaskServices {
    }
 
     public void concludeTask(int ordem) {
-        if (ordem >= repository.getTaskListSize()) {
+        if (ordem >= tasksInMemory.getTaskListSize()) {
             System.out.println("Impossível, ordem inexistente.");
             return;
         }
-        Task task = repository.getTaskByOrdem(ordem);
+        Task task = tasksInMemory.getTaskByOrdem(ordem);
         if (!task.getStatus()) {
             task.setStatus(true);
             System.out.println("tarefa concluida!");
@@ -57,9 +59,9 @@ public class TaskServices {
     }
 
     public void excludeTask(int ordem) {
-        Task task = repository.getTaskByOrdem(ordem);
+        Task task = tasksInMemory.getTaskByOrdem(ordem);
 
-        repository.removeTask(task);
+        tasksInMemory.removeTask(task);
         System.out.println("A " + task.toString() + " foi excluida!");
 
 

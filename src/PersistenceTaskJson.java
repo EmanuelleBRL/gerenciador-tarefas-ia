@@ -3,6 +3,9 @@ import com.google.gson.GsonBuilder;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PersistenceTaskJson implements ITaskRepository   {
@@ -20,7 +23,11 @@ public class PersistenceTaskJson implements ITaskRepository   {
 //deserialization
     @Override
     public List<Task> load() throws IOException {
-
-        return List.of();
+    if (!Files.exists(Paths.get(ARQUIVO_JSON))){
+        return new ArrayList<>();
+    }
+    String json = new String(Files.readAllBytes(Paths.get(ARQUIVO_JSON)));
+    Task[] tasks = gson.fromJson(json, Task[].class);
+    return new ArrayList<>(List.of(tasks == null ? new Task[0] : tasks));
     }
 }

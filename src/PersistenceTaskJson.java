@@ -16,6 +16,7 @@ public class PersistenceTaskJson implements ITaskRepository   {
     @Override
     public void save(List<Task> tasks) throws IOException {
         String json = gson.toJson(tasks);
+        //TODO impementar tratamento de erro mais tarde
       try  (FileWriter writer = new FileWriter(ARQUIVO_JSON)){
             writer.write(json);
         }
@@ -23,6 +24,7 @@ public class PersistenceTaskJson implements ITaskRepository   {
 //deserialization
     @Override
     public List<Task> load() throws IOException {
+        //TODO impementar tratamento de erro mais tarde
     if (!Files.exists(Paths.get(ARQUIVO_JSON))){
         return new ArrayList<>();
     }

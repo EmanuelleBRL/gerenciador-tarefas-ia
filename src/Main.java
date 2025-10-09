@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 
 public class Main {
-    ITaskRepository repository = new PersistenceTaskList();
+    ITaskRepository repository = new PersistenceTaskJson();
     Scanner input = new Scanner(System.in);
     TaskServices task = new TaskServices(repository);
     InteracaoUser ui = new InteracaoUser(input);
@@ -13,7 +13,10 @@ public class Main {
     public static void main(String[] args) {
         // --Inicialização--
         Main m = new Main();
+        m.task.loadTasksFromJson();
         m.executar();
+        m.task.persistTasksInJson();
+
     }
 
     public void executar() {
@@ -66,6 +69,7 @@ public class Main {
         String titulo = ui.solicitarTarefa();
         String descricao = ui.solicitarDescricao();
         task.editTask(ordem, titulo, descricao);
+        //Fazer confirmação (mostrar tarefa editada e antiga) para confirmar antes de concluir
         System.out.println("Tarefa editada com sucesso!");
     }
 
@@ -87,6 +91,7 @@ public class Main {
                 case "4":
                     sair = 2;
                     break;
+                default: System.out.println("Opção inválida!");
 
 
             }

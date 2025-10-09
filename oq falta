@@ -1,14 +1,12 @@
 
 part1
 
-Criar ITaskRepository?
+?
 
-Persistir em JSON -> apenas para salvar a lista em um arquivo fisico
+
 
 Organizar tarefa por data?
 
-
-part2
 
 Integrar ia --->how?
 
@@ -18,7 +16,7 @@ Por: Tarefa simples e tarefa com prazo (data e talvez hora)
 
 Formatar toString
 
-Formatar Status para Concluído
+Formatar Status para ENUM
 
 
 FINAL!!! -> DOCUMENTAR
@@ -36,6 +34,8 @@ E ESCREVER UM TEXTO EXPLICANDO COMO O CODIGO FUNCIONA (nivel relatório)
 //Exibir menu2 e receber opc
 //Solicitar conclusao tarefa
 //Solicitarexclusao tarefa
+//Persistir em JSON -> apenas para salvar a lista em um arquivo fisico
+//Criar ITaskRepository
 
 !!!A resposta é não, não quebra o princípio, porque a responsabilidade foi redefinida.
 

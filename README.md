@@ -1,17 +1,29 @@
+TaskFlow CLI: Gestor de Tarefas com Integração de IA
+O TaskFlow CLI é uma aplicação Javadesenvolvida para o gerenciamento eficiente de tarefas pessoais. O projeto evolui de um simples CRUD em memória para um sistema persistente que utiliza Inteligência Artificial para auxiliar na organização do dia a dia.
 
+🚀 Funcionalidades Atuais & Backlog
+Fase 1: Core & Lógica (Concluído)
+Gestão de Tarefas: Adicionar, listar, remover e marcar tarefas como concluídas.
 
+Estrutura de Dados: Utilização de ArrayList para manipulação dinâmica de objetos.
 
+Interface: Menu interativo via console (CLI) para uma experiência de usuário simplificada.
 
-## Backlog de Funcionalidades
-- [ ] 1. Configurar projeto no IntelliJ com Git.
-- [ ] 2. Modelar e criar a classe `Tarefa`.
-- [ ] 3. Implementar o menu principal interativo no console.
-- [ ] 4. Implementar a funcionalidade de adicionar uma nova tarefa.
-- [ ] 5. Armazenar as tarefas em um `ArrayList`.
-- [ ] 6. Implementar a funcionalidade de listar todas as tarefas.
-- [ ] 7. Implementar a funcionalidade de marcar uma tarefa como concluída.
-- [ ] 8. Implementar a funcionalidade de remover uma tarefa.
-- [ ] 9. Implementar a persistência de tarefas em arquivo de texto (java.io).
-- [ ] 10. Refatorar o código para aplicar herança (TarefaSimples vs TarefaComPrazo).
-- [ ] 11. Integrar com a API do Gemini/OpenAI para sugerir tarefas.
-- [ ] 12. Escrever a documentação final.
+Fase 2: Persistência e POO (Em desenvolvimento)
+Persistência em Arquivo: Salvamento automático em arquivos de texto utilizando java.io.
+
+Herança e Polimorfismo: Refatoração do modelo para suportar TarefaSimples e TarefaComPrazo.
+
+Fase 3: Inteligência Artificial (Próximo Passo)
+Sujestões Inteligentes: Integração com a API do Gemini/OpenAI para sugerir descrições de tarefas e prioridades com base no histórico do usuário.
+
+🛠️ Tecnologias Utilizadas
+Linguagem: Java 17+
+
+IDE: IntelliJ IDEA
+
+Controle de Versão: Git & GitHub
+
+Persistência: Manipulação de Arquivos (IO)
+
+Integrações: Gemini API (Planejado)
